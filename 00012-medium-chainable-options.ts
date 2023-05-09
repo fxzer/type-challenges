@@ -44,7 +44,7 @@ type Expected3 = {
 
 
 // ============= Your Code Here =============
-type Chainable<T = {}> = {
+type Chainable<T = {}> = {   //TODO:有待理解
   option: <K extends string, V>(key: K extends keyof T ?
     V extends T[K] ? never : K
     : K, value: V) => Chainable<Omit<T, K> & Record<K, V>>
