@@ -16,4 +16,4 @@ type cases1 = [
 
 
 // ============= Your Code Here =============
-type Integer<T> = any
+type Integer<T extends number> = `${T}` extends `${bigint}` ? T : never
