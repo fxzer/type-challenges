@@ -21,7 +21,10 @@ type errors = [
 // type First<T extends any[]> = T extends [] ? never : T[0] //判断是否为空数组：T extends []
 
 //解法二：判断数组长度是否为 0，如果是空数组返回 never，否则返回第一个元素
-type First<T extends any[]> = T['length'] extends 0 ? never : T[0] //判断数组长度是否为 0：T['length'] extends 0
+// type First<T extends any[]> = T['length'] extends 0 ? never : T[0] //判断数组长度是否为 0：T['length'] extends 0
 
 //解法三：infer P 获取第一个元素
-// type First<T extends any[]> = T extends [infer P, ...any[]] ? P : never // infer P：获取第一个元素，...any[]：获取剩余元素
+// type First<T extends any[]> = T extends [infer P, ...rest[]] ? P : never // infer P：获取第一个元素，...rest[]：获取剩余元素
+ 
+//解法四： T[number] 遍历数组
+type First<T extends any[]> =  T[0] extends T[number] ? T[0] : never
