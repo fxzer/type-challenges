@@ -14,7 +14,7 @@ type test1 = MyExclude<'a' | 'b' | 'c', 'a' | 'b'> // 'c'  a:为什么返回 'c'
 
 type T = 'a' | 'b' | 'c'
 type U = 'a' | 'b'
-type ex1 = T extends U ? never : T //  "a" | "b" | "c" ??
+type ex1 = T extends U ? never : T //  "a" | "b" | "c" ?? 相对于上面的函数，这相当于两个类型整个进行对比，没有进行循环对比
 
 
 

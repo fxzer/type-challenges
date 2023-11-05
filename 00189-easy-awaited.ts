@@ -27,7 +27,7 @@ type error = MyAwaited<number>
 type Thenable<T> = {
   then: (onfulfilled: (arg: T) => unknown) => unknown;
 }
-
+// type MyAwaited<T extends Promise<unknown>>  = T extends Promise<infer X> ? (X extends Promise<unknown> ? MyAwaited<X> : X ): X
 type MyAwaited<T extends Thenable<any> | Promise<any>> = T extends Promise<infer Inner>
 ? Inner extends Promise<any> ? MyAwaited<Inner> : Inner
 : T extends Thenable<infer U> ? U : false
